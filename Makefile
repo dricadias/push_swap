@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap.c
+NAME = push_swap.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
 AR = ar rcs
