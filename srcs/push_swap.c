@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 16:46:10 by adias-do          #+#    #+#             */
-/*   Updated: 2025/01/21 16:50:20 by adias-do         ###   ########.fr       */
+/*   Created: 2025/01/24 11:49:30 by adias-do          #+#    #+#             */
+/*   Updated: 2025/01/24 11:54:09 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../includes/push_swap.h"
 
-# include <unistd.h>
-# include "../libft/libft.h"
-
-typedef struct s_stack
+int	main(int argc, char **argv)
 {
-	struct s_stack	*prev;
-	struct s_stack	*next;
-}	t_stack;
-
-void	ft_error(void);
-
-#endif
-
+	(void)argv;
+	if (argc < 2)
+		ft_error();
+	write(1, "\n", 1);
+}

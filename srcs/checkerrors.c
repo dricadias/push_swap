@@ -10,17 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	ft_error(void)
 {
-	write(1, "Error\n", 6);
+	ft_putendl_fd("Error", 2);
+	exit(0);
 }
 
 t_stack ft_checkargs(int argc, char **argv)
 {
-	if (argc < 2)
-		ft_error();
+	char	**splt;
+
+	splt = ft_split(argv[1], 32);
+	/*if (argc < 2) // nao sei se preciso disso aqui ou na main
+		ft_error();*/
 	if (argc == 2)
 		// chamar funcao pra separar os numeros
 		// e checar se tem letras etc
@@ -41,11 +45,13 @@ int	ft_atoi_checker(char *str)
 	if ((*str == '-') || (*str == '+'))
 	{
 		if (*str == '-')
-			sign *= 1;
+			sign *= -1;
 		str++;
 	}
 	while (*str >= '0' && *str <= '9')
 	{
+		/*if (!ft_isdigit)
+			ft_error();*/
 		res = res * 10 + *str - '0';
 		str++;
 	}
