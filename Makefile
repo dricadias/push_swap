@@ -6,7 +6,7 @@
 #    By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/10 16:45:05 by adias-do          #+#    #+#              #
-#    Updated: 2025/01/10 16:54:54 by adias-do         ###   ########.fr        #
+#    Updated: 2025/01/27 18:50:33 by adias-do         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,9 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
 AR = ar rcs
 RM = rm -rf
-# SRCS =
+SRCS = srcs/lists.c \
+			 srcs/checkerrors.c \
+			 srcs/push_swap.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
