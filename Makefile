@@ -10,23 +10,25 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap.a
+NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
-AR = ar rcs
+# AR = ar rcs
 RM = rm -rf
 SRCS = srcs/lists.c \
-			 srcs/checkerrors.c \
-			 srcs/push_swap.c
+	srcs/checkerrors.c \
+	srcs/push_swap.c
 OBJS = $(SRCS:.c=.o)
+
+INCLUDE = -L ./libft -lft
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(AR) $(NAME) $(OBJS)
+	$(CC) $(OBJS) -o $(NAME)
 
 %.o: %.c
-	$(CC) $(FLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJS)
@@ -35,3 +37,5 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re
