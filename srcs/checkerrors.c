@@ -6,33 +6,63 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:57:35 by adias-do          #+#    #+#             */
-/*   Updated: 2025/01/23 20:12:07 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/01/27 17:22:13 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_error(void)
+void	ft_error(void) // talvez eu tire isso daqui
 {
 	ft_putendl_fd("Error", 2);
 	exit(0);
 }
 
-t_stack ft_checkargs(int argc, char **argv)
+// caso seja 1 argv (2 argc)
+t_stack *ft_split_args(char **argv)
 {
-	char	**splt;
+	int			i;
+	int			c;
+	char		**splt;
+	t_stack	*stack_a;
 
+	i = 0;
 	splt = ft_split(argv[1], 32);
-	/*if (argc < 2) // nao sei se preciso disso aqui ou na main
-		ft_error();*/
-	if (argc == 2)
-		// chamar funcao pra separar os numeros
-		// e checar se tem letras etc
-	else // caso seja apenas numeros
-			// colocar os args na stack a
+	stack_a = NULL;
+	while (splt[i])
+	{
+		c = ft_atoi_checker(splt[i]);
+		lstadd_back(&stack_a, lst_new(c));
+		i++;
+	}
+	return (stack_a); // colocar no stack a
 }
 
-// args em numeros
+t_stack	*ft_checkargs(int argc, char **argv)
+{
+	int			i;
+	int			c;
+	t_stack	*stack_a;
+
+	i = 1;
+	stack_a = NULL;
+	if (argc < 2)
+		ft_error();
+	else if (argc == 2)
+			stack_a = ft_split_args(argv);
+	else // se argc > 2
+	{
+		while (i < argc)
+		{
+			c = ft_atoi_checker(argv[i]);
+			lstadd_back(&stack_a, lst_new(c));
+			i++;
+		}
+	}
+	return (stack_a); // colocar no stack a
+} //tive que criar uma add_back e new pq as do libft sao outra struct
+
+// args em numeros dentro do int max e min
 int	ft_atoi_checker(char *str)
 {
 	int	res;
@@ -50,10 +80,12 @@ int	ft_atoi_checker(char *str)
 	}
 	while (*str >= '0' && *str <= '9')
 	{
-		/*if (!ft_isdigit)
-			ft_error();*/
+		if (!ft_isdigit(*str))
+			ft_error();
 		res = res * 10 + *str - '0';
 		str++;
 	}
+	if ((res * sign) > 2147483647 || (res * sign) < -2147483647)
+		ft_error();
 	return (res * sign);
-} // modificar depois de acordo com o que preciso
+}
