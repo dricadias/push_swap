@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:57:35 by adias-do          #+#    #+#             */
-/*   Updated: 2025/01/27 17:22:13 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/01/27 18:34:34 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_error(void) // talvez eu tire isso daqui
 {
 	ft_putendl_fd("Error", 2);
-	exit(0);
+	exit(1);
 }
 
 // caso seja 1 argv (2 argc)
