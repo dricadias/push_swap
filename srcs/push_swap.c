@@ -14,8 +14,8 @@
 
 int	main(int argc, char **argv)
 {
-	(void)argv;
-	if (argc < 2)
-		ft_error();
-	write(1, "\n", 1);
+	t_stack	*a;
+
+	a = ft_checkargs(argc, argv);
+	return (0);
 }
