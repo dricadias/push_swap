@@ -14,6 +14,7 @@ NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
 # AR = ar rcs
+LIBFTDIR = libft
 RM = rm -rf
 SRCS = srcs/lists.c \
 	srcs/checkerrors.c \
@@ -22,19 +23,25 @@ OBJS = $(SRCS:.c=.o)
 
 INCLUDE = -L ./libft -lft
 
-all: $(NAME)
+.c.o:
+	${CC} -c $< -o ${<:.c=.o}
 
 $(NAME): $(OBJS)
-	$(CC) $(OBJS) -o $(NAME)
+	make -C $(LIBFTDIR)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) ${INCLUDE}
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+all: $(NAME)
+
+#%.o: %.c
+#	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJS)
+	@make -s -C $(LIBFTDIR) clean
 
 fclean: clean
 	$(RM) $(NAME)
+	@make -s -C $(LIBFTDIR) fclean
 
 re: fclean all
 
