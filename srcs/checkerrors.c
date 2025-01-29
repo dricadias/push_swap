@@ -47,7 +47,7 @@ t_stack	*ft_checkargs(int argc, char **argv)
 	i = 1;
 	stack_a = NULL;
 	if (argc < 2)
-		ft_error();
+		return (0);
 	else if (argc == 2)
 			stack_a = ft_split_args(argv);
 	else // se argc > 2
@@ -85,7 +85,7 @@ int	ft_atoi_checker(char *str)
 		res = res * 10 + *str - '0';
 		str++;
 	}
-	if ((res * sign) > 2147483647 || (res * sign) < -2147483647)
+	if ((res * sign) > 2147483647 || (res * sign) < -2147483648)
 		ft_error();
 	return (res * sign);
 }

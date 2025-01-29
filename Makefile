@@ -27,7 +27,7 @@ INCLUDE = -L ./libft -lft
 	${CC} -c $< -o ${<:.c=.o}
 
 $(NAME): $(OBJS)
-	make -C $(LIBFTDIR)
+	@make -s -C $(LIBFTDIR)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) ${INCLUDE}
 
 all: $(NAME)
