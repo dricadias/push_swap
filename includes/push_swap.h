@@ -24,17 +24,17 @@ typedef struct s_stack
 }	t_stack;
 
 // error handling and add stack a 
-void	ft_error(void);
-int	ft_atoi_checker(char *str);
-t_stack	*ft_checkargs(int argc, char **argv);
+void		ft_error(void);
+int			ft_atoi_checker(char *str);
+int			if_equals(t_stack *stack, int nb);
 t_stack *ft_split_args(char **argv);
+t_stack	*ft_checkargs(int argc, char **argv);
 
 // lists
 t_stack	*lst_last(t_stack *lst);
 t_stack	*lst_new(int content);
-void	lstadd_back(t_stack **stack, t_stack *s_new);
-void	lstadd_front(t_stack **stack, t_stack *s_new);
-int	lstsize(t_stack *stack);
+void		lstadd_back(t_stack **stack, t_stack *s_new);
+void		lstadd_front(t_stack **stack, t_stack *s_new);
+int			lstsize(t_stack *stack);
 
 #endif
-
