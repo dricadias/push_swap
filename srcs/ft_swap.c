@@ -6,17 +6,18 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:44:32 by adias-do          #+#    #+#             */
-/*   Updated: 2025/02/03 16:09:33 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/02/04 15:21:54 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	sa()
+void	ft_swap_a(t_stack *a)
 {}
 
-t_stack	sb()
+void	ft_swap_b()
 {}
 
-t_stack ss()
+void	ft_swap()
 {}
+

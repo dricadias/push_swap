@@ -19,9 +19,15 @@
 typedef struct s_stack
 {
 	int							nbr;
-	struct s_stack	*prev;
-	struct s_stack	*next;
+	struct s_stack	*prev;	// prev node
+	struct s_stack	*next;	// next node
 }	t_stack;
+
+/*typedef struct s_stack_list
+{
+	struct s_stack_list *head; 	// first node
+	struct s_stack_list *tail;	// last node
+}	t_stack_list;*/
 
 // error handling and add stack a 
 void		ft_error(void);
