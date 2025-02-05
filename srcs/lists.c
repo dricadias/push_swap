@@ -73,18 +73,3 @@ int	lstsize(t_stack *stack)
 	return (c);
 }
 
-/*void	lstclear(t_stack **stack, void (*del)(void *))
-{
-	t_stack	*temp;
-
-	if (!*stack)
-		return ;
-	while (*stack)
-	{
-		temp = (*stack)->next;
-		ft_lstdelone(*stack, del); // teria que criar outra delone ou ajustar sem usar ela.
-		*stack = temp;
-	}
-	*stack = NULL;
-}*/  // 6 funcoes no arquivo
-// caso precise dela finalizo.
