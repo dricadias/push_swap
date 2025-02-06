@@ -42,6 +42,8 @@ void	lstadd_back(t_stack **stack, t_stack *s_new)
 {
 	t_stack	*last;
 
+	if (!stack || !s_new)
+		return ;
 	if (!*stack)
 		*stack = s_new;
 	else
