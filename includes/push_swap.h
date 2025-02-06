@@ -22,12 +22,6 @@ typedef struct s_stack
 	struct s_stack	*next;	// next node
 }	t_stack;
 
-/*typedef struct s_stack_list
-{
-	struct s_stack_list *head; 	// first node
-	struct s_stack_list *tail;	// last node
-}	t_stack_list;*/
-
 // error handling and add stack a 
 void		ft_error(void);
 int			ft_atoi_checker(char *str);
@@ -41,5 +35,18 @@ t_stack	*lst_new(int content);
 void		lstadd_back(t_stack **stack, t_stack *s_new);
 void		lstadd_front(t_stack **stack, t_stack *s_new);
 int			lstsize(t_stack *stack);
+
+// movements
+  // swap
+void	ft_swap(t_stack **stack);
+void	ft_swap_a(t_stack **stack_a, int i);
+void	ft_swap_b(t_stack **stack_b, int i);
+void	ft_ss(t_stack **stack_a, t_stack **stack_b, int i);
+  // push
+void	ft_push(t_stack **stack_from, t_stack **stack_to, int j, int mov);
+  // rotate
+void	ft_rotate(t_stack **stack, int j, int mov);
+  // reverse rotate
+void	ft_reverse_rotate(t_stack **stack, int j, int mov);
 
 #endif
