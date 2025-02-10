@@ -12,66 +12,80 @@
 
 #include "../includes/push_swap.h"
 
-void	ft_error(void) // talvez eu tire isso daqui
+void	ft_error(void)
 {
 	ft_putendl_fd("Error", 2);
 	exit(1);
 }
 
-// caso seja 1 argv (2 argc)
+// if 1 argv (2 argc)
+// put in stack a
 t_stack	*ft_split_args(char **argv)
 {
 	int				i;
 	int				c;
 	char			**splt;
-	t_stack		*stack_a;
+	t_stack			*stack_a;
 
-	i = 0;
+	i = -1;
 	splt = ft_split(argv[1], 32);
+	if (!splt)
+		ft_error();
 	stack_a = NULL;
-	while (splt[i])
+	while (splt[++i])
 	{
 		c = ft_atoi_checker(splt[i]);
 		if (if_equals(stack_a, c))
+		{
+			ft_stackfree(&stack_a);
+			ft_freestr(splt);
+			free (splt);
 			ft_error();
+		}
 		lstadd_back(&stack_a, lst_new(c));
-		i++;
 	}
+	ft_freestr (splt);
 	free (splt);
-	return (stack_a); // colocar no stack a
+	return (stack_a);
 }
 
-t_stack	*ft_checkargs(int argc, char **argv)
+// check all args
+// put in stack a
+t_stack	*ft_check_args(int argc, char **argv)
 {
 	int			i;
 	int			c;
-	t_stack	*stack_a;
+	t_stack		*stack_a;
 
 	i = 1;
 	stack_a = NULL;
 	if (argc < 2)
 		return (0);
 	else if (argc == 2)
-			stack_a = ft_split_args(argv);
-	else // se argc > 2
+		stack_a = ft_split_args(argv);
+	else
 	{
 		while (i < argc)
 		{
 			c = ft_atoi_checker(argv[i]);
 			if (if_equals(stack_a, c))
+			{
+				ft_stackfree(&stack_a);
 				ft_error();
+			}
 			lstadd_back(&stack_a, lst_new(c));
 			i++;
 		}
 	}
-	return (stack_a); // colocar no stack a
-} //tive que criar uma add_back e new pq as do libft sao outra struct
+	return (stack_a);
+}
 
 // args em numeros dentro do int max e min
+// line 92 check if isnt a number
 int	ft_atoi_checker(char *str)
 {
 	int				sign;
-	long long	res; // long long pra conseguir entrar no error 
+	long long		res;
 
 	res = 0;
 	sign = 1;
@@ -85,7 +99,7 @@ int	ft_atoi_checker(char *str)
 	}
 	while (*str)
 	{
-		if (!ft_isdigit(*str)) // verificar se tem outro tipo de caracter
+		if (!ft_isdigit(*str))
 			ft_error();
 		res = res * 10 + *str - '0';
 		str++;
@@ -95,8 +109,8 @@ int	ft_atoi_checker(char *str)
 	return (res * sign);
 }
 
-// verificar numeros iguais
-// muito ruim (lenta O(n^2)) fiz pra testar
+// check same numbers
+// bad (slow O(n^2)) just for test
 int	if_equals(t_stack *stack, int nb)
 {
 	while (stack)
