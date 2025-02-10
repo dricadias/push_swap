@@ -34,7 +34,16 @@ void	ft_reverse_rotate(t_stack **stack, int j, int mov)
 			write(1, "rra\n", 4);
 		else if (mov == 1)
 			write(1, "rrb\n", 4);
-		else
+	}
+}
+
+void	ft_rrr(t_stack **stack_a, t_stack **stack_b, int j, int mov)
+{
+	ft_reverse_rotate(stack_a, 1, mov);
+	ft_reverse_rotate(stack_b, 1, mov);
+	if (j == 0)
+	{
+		if (mov == 2)
 			write(1, "rrr\n", 4);
 	}
 }

@@ -32,3 +32,14 @@ void	ft_rotate(t_stack **stack, int j, int mov)
 			write(1, "rr\n", 3);
 	}
 }
+
+void	ft_rr(t_stack **stack_a, t_stack **stack_b, int j, int mov)
+{
+	ft_rotate(stack_a, 1, mov);
+	ft_rotate(stack_b, 1, mov);
+	if (j == 0)
+	{
+		if (mov == 2)
+			write(1, "rr\n", 3);
+	}
+}
