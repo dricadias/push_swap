@@ -16,9 +16,14 @@ CFLAGS = -Wall -Wextra -Werror -g
 # AR = ar rcs
 LIBFTDIR = libft
 RM = rm -rf
-SRCS = srcs/lists.c \
+SRCS = srcs/list_utils.c \
 	srcs/checkerrors.c \
-	srcs/push_swap.c
+	srcs/push_swap.c \
+	srcs/list_utils_2.c \
+	srcs/ft_swap.c \
+	srcs/ft_rotate.c \
+	srcs/ft_push.c \
+	srcs/ft_reverse_rotate.c
 OBJS = $(SRCS:.c=.o)
 
 INCLUDE = -L ./libft -lft
