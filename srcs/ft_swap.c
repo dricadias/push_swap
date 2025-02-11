@@ -12,6 +12,10 @@
 
 #include "../includes/push_swap.h"
 
+// first = *stack; --> define as first
+// second = first->next; --> points to the second
+// first->next = second->next; --> 1º next points to 3º
+// second->next = first; --> 2º next points for 1º
 void	ft_swap(t_stack **stack)
 {
 	t_stack	*first;
@@ -19,10 +23,10 @@ void	ft_swap(t_stack **stack)
 
 	if (!stack || !(*stack) || !((*stack)->next))
 		return ;
-	first = *stack; // define como primeiro
-	second = first->next; // aponta pro next do primeiro (segundo)
-	first->next = second->next; // o 1º next aponta pro 3º
-	second->next = first; // proximo do 2º aponta pro 1º
+	first = *stack;
+	second = first->next;
+	first->next = second->next;
+	second->next = first;
 	*stack = second;
 }
 

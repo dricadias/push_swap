@@ -1,32 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push.c                                          :+:      :+:    :+:   */
+/*   check_sorted.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 12:08:35 by adias-do          #+#    #+#             */
-/*   Updated: 2025/02/06 17:01:44 by adias-do         ###   ########.fr       */
+/*   Created: 2025/02/11 15:01:05 by adias-do          #+#    #+#             */
+/*   Updated: 2025/02/11 16:35:45 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_push(t_stack **stack_from, t_stack **stack_to, int j, int mov)
+// check if stack a or b is sorted
+int	check_sorted(t_stack *stack, int type)
 {
-	t_stack	*first_from;
+	t_stack	*tmp;
 
-	if (!stack_from || !(*stack_from))
-		return ;
-	first_from = *stack_from;
-	*stack_from = first_from->next;
-	first_from->next = NULL;
-	lstadd_front(stack_to, first_from);
-	if (j == 0)
+	if (!stack || !(stack)->next)
+		return (1);
+	tmp = stack;
+	if (type == 0)
 	{
-		if (mov == 0)
-			write(1, "pa\n", 3);
-		else
-			write(1, "pb\n", 3);
+		while (tmp->next)
+		{
+			if (tmp->next->nbr < tmp->nbr)
+				return (0);
+			tmp = tmp->next;
+		}
 	}
+	else
+	{
+		while (tmp->next)
+		{
+			if (tmp->next->nbr > tmp->nbr)
+				return (0);
+			tmp = tmp->next;
+		}
+	}
+	return (1);
 }

@@ -12,10 +12,11 @@
 
 #include "../includes/push_swap.h"
 
+// "bf"_last means: before the last
 void	ft_reverse_rotate(t_stack **stack, int j, int mov)
 {
 	t_stack	*last;
-	t_stack	*bf_last; // before the last
+	t_stack	*bf_last;
 
 	if (!stack || !(*stack) || !((*stack)->next))
 		return ;

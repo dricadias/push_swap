@@ -12,6 +12,7 @@
 
 #include "../includes/push_swap.h"
 
+// clear stacks
 void	ft_stackfree(t_stack **stack)
 {
 	t_stack	*temp;
@@ -25,8 +26,9 @@ void	ft_stackfree(t_stack **stack)
 		free(*stack);
 		*stack = temp;
 	}
-} // clear stacks
+}
 
+// clear strings
 void	ft_freestr(char **str)
 {
 	char	*temp;
@@ -40,4 +42,4 @@ void	ft_freestr(char **str)
 		free(temp);
 	}
 	*str = NULL;
-} // clear strings
+}

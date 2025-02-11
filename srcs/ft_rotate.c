@@ -27,7 +27,7 @@ void	ft_rotate(t_stack **stack, int j, int mov)
 		if (mov == 0)
 			write(1, "ra\n", 3);
 		else if (mov == 1)
-				write(1, "rb\n", 3);
+			write(1, "rb\n", 3);
 		else
 			write(1, "rr\n", 3);
 	}
