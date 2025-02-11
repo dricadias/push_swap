@@ -19,6 +19,7 @@
 typedef struct s_stack
 {
 	int					nbr;
+	int					index;
 	struct s_stack		*next;	// next node
 }	t_stack;
 
@@ -42,6 +43,8 @@ void		ft_freestr(char **str);
 int			check_sorted(t_stack *stack, int type);
 
 // movements
+// j = 0 for print moves; j = 1 for checker;
+// mov = 0 for moves in stack_a; mov = 1 for stack_b; mov >= 2 for both;
 	// swap
 void		ft_swap(t_stack **stack);
 void		ft_swap_a(t_stack **stack_a, int i);
