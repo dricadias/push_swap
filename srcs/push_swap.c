@@ -12,38 +12,40 @@
 
 #include "../includes/push_swap.h"
 
+void	print_stack(t_stack *stack, char *name)
+{
+	ft_printf("%s: ", name);
+	while (stack)
+	{
+		ft_printf("%d ", stack->nbr);
+		stack = stack->next;
+	}
+	ft_printf("\n");
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
 
 	a = ft_check_args(argc, argv);
+	print_stack(a, "antes");
+	if (!check_sorted(a, 0))
+	{
+		sort_three(&a);
+	}
+	print_stack(a, "depois");
 	ft_stackfree(&a);
 	return (0);
 }
 
 /*#include <stdio.h>*/
 /**/
-/*void print_stack(t_stack *stack, char *name)*/
-/*{*/
-/*    printf("%s: ", name);*/
-/*    while (stack)*/
-/*    {*/
-/*        printf("%d ", stack->nbr);*/
-/*        stack = stack->next;*/
-/*    }*/
-/*    printf("\n");*/
-/*}*/
 /*int main(int argc, char **argv)*/
 /*{*/
 /*    t_stack *a;*/
 /*    t_stack *b = NULL;*/
 /*    // Criando a pilha a partir dos argumentos*/
 /*    a = ft_check_args(argc, argv);*/
-/*    if (!a)*/
-/*    {*/
-/*        printf("Erro ao criar a pilha\n");*/
-/*        return (1);*/
-/*    }*/
 /*    printf("Pilha inicial:\n");*/
 /*    print_stack(a, "A");*/
 /*    // Testando operações básicas do Push Swap*/
