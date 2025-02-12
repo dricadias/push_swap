@@ -17,19 +17,21 @@ CFLAGS = -Wall -Wextra -Werror -g
 LIBFTDIR = libft
 RM = rm -rf
 SRCS = srcs/list_utils.c \
-	srcs/checkerrors.c \
+	srcs/check_args.c \
 	srcs/push_swap.c \
 	srcs/list_utils_2.c \
 	srcs/ft_swap.c \
 	srcs/ft_rotate.c \
 	srcs/ft_push.c \
-	srcs/ft_reverse_rotate.c
+	srcs/ft_reverse_rotate.c \
+	srcs/check_sorted.c \
+	srcs/sort_three.c
 OBJS = $(SRCS:.c=.o)
 
 INCLUDE = -L ./libft -lft
 
 .c.o:
-	${CC} -c $< -o ${<:.c=.o}
+	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 $(NAME): $(OBJS)
 	@make -s -C $(LIBFTDIR)
