@@ -43,3 +43,18 @@ void	ft_freestr(char **str)
 	}
 	*str = NULL;
 }
+
+int	ft_index(t_stack **stack, int number)
+{
+	int	i;
+
+	if (!stack || !*stack)
+		return (0);
+	i = 0;
+	while (*stack->nbr != number)
+	{
+		*stack = stack->next;
+		stack->next = stack->next->next;
+		i++;
+	}
+}
