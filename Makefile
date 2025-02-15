@@ -25,7 +25,8 @@ SRCS = srcs/list_utils.c \
 	srcs/ft_push.c \
 	srcs/ft_reverse_rotate.c \
 	srcs/check_sorted.c \
-	srcs/sort_three.c
+	srcs/sort_three.c \
+	srcs/sort_five.c	
 OBJS = $(SRCS:.c=.o)
 
 INCLUDE = -L ./libft -lft

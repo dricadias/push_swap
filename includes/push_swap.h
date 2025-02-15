@@ -37,6 +37,9 @@ void		lstadd_back(t_stack **stack, t_stack *s_new);
 void		lstadd_front(t_stack **stack, t_stack *s_new);
 void		ft_stackfree(t_stack **stack);
 int			lstsize(t_stack *stack);
+int			ft_index(t_stack *stack, int number);
+int			ft_min(t_stack *stack);
+int			ft_max(t_stack *stack);
 
 // utils
 void		ft_freestr(char **str);
@@ -62,4 +65,6 @@ void		ft_rrr(t_stack **stack_a, t_stack **stack_b, int j, int mov);
 // sorting
 void		sort_three(t_stack **stack_a);
 void		one_move(t_stack **stack_a, t_stack *first, t_stack *sec, t_stack *thrd);
+void		sort_four(t_stack **stack_a);
+
 #endif
