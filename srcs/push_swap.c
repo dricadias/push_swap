@@ -28,10 +28,14 @@ int	main(int argc, char **argv)
 	t_stack	*a;
 
 	a = ft_check_args(argc, argv);
+	ft_printf("menor: %d\n",ft_min(a));
+	ft_printf("index do menor: %d\n",ft_index(a, ft_min(a)));
+	ft_printf("maior: %d\n", ft_max(a));
+	ft_printf("index do maior: %d\n",ft_index(a, ft_max(a)));
 	print_stack(a, "antes");
 	if (!check_sorted(a, 0))
 	{
-		sort_three(&a);
+		sort_four(&a);
 	}
 	print_stack(a, "depois");
 	ft_stackfree(&a);
