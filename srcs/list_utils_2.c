@@ -44,17 +44,46 @@ void	ft_freestr(char **str)
 	*str = NULL;
 }
 
-int	ft_index(t_stack **stack, int number)
+// find index
+int	ft_index(t_stack *stack, int number)
 {
 	int	i;
 
-	if (!stack || !*stack)
+	if (!stack)
 		return (0);
 	i = 0;
-	while (*stack->nbr != number)
+	while (stack->nbr != number)
 	{
-		*stack = stack->next;
-		stack->next = stack->next->next;
+		stack = stack->next;
 		i++;
 	}
+	return (i);
+}
+
+int	ft_min(t_stack *stack)
+{
+	int	i;
+
+	i = stack->nbr;
+	while (stack)
+	{
+		if (stack->nbr < i)
+			i = stack->nbr;
+		stack = stack->next;
+	}
+	return (i);
+}
+
+int	ft_max(t_stack *stack)
+{
+	int	i;
+
+	i = stack->nbr;
+	while (stack)
+	{
+		if (stack->nbr > i)
+			i = stack->nbr;
+		stack = stack->next;
+	}
+	return (i);
 }
