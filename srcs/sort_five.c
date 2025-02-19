@@ -41,13 +41,31 @@ void	sort_four(t_stack **stack_a)
 void	sort_five(t_stack **stack_a)
 {
 	t_stack		*stack_b;
-	int			index_min;
 
 	if (!stack_a || !*stack_a || !((*stack_a)->next))
 		return ;
 	stack_b = NULL;
 	ft_push(stack_a, &stack_b, 0, 1);
 	ft_push(stack_a, &stack_b, 0, 1);
-	if (check_sorted(stack_b, 1))
+	if (!check_sorted(stack_b, 1))
 		ft_swap_b(&stack_b, 0);
+    sort_three(stack_a);
+    if (stack_b->nbr > (ft_max(*stack_a)))
+    {
+        ft_push(&stack_b, stack_a, 0, 1);
+        ft_rotate(stack_a, 0, 1);
+    }
+	while (lstsize(stack_b) != 0)
+    {
+        if (((stack_b->nbr < (*stack_a)->nbr) && (stack_b->nbr > (lst_last(*stack_a)->nbr))) || (stack_b->nbr < (ft_min(*stack_a)) && check_sorted(*stack_a, 0)))
+		{
+			ft_push(&stack_b, stack_a, 0, 0);
+			if ((*stack_a)->nbr  != (ft_min(*stack_a)))
+					ft_reverse_rotate(stack_a, 0, 0);
+		}
+        else
+            ft_reverse_rotate(stack_a, 0, 0);
+    }
+    while (!check_sorted(*stack_a, 0))
+    	ft_reverse_rotate(stack_a, 0, 0);
 }

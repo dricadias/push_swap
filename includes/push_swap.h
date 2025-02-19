@@ -66,5 +66,6 @@ void		ft_rrr(t_stack **stack_a, t_stack **stack_b, int j, int mov);
 void		sort_three(t_stack **stack_a);
 void		one_move(t_stack **stack_a, t_stack *first, t_stack *sec, t_stack *thrd);
 void		sort_four(t_stack **stack_a);
+void		sort_five(t_stack **stack_a);
 
 #endif

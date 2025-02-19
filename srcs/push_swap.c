@@ -35,7 +35,7 @@ int	main(int argc, char **argv)
 	print_stack(a, "antes");
 	if (!check_sorted(a, 0))
 	{
-		sort_four(&a);
+		sort_five(&a);
 	}
 	print_stack(a, "depois");
 	ft_stackfree(&a);
