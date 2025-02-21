@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 11:49:30 by adias-do          #+#    #+#             */
-/*   Updated: 2025/01/24 11:54:09 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/02/21 22:07:50 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,12 @@ int	main(int argc, char **argv)
 	print_stack(a, "antes");
 	if (!check_sorted(a, 0))
 	{
-		sort_five(&a);
+		if (lstsize(a) == 3) 
+			sort_three(&a);
+		else if (lstsize(a) == 4)
+			sort_four(&a);
+		else if (lstsize(a) == 5)
+			sort_five(&a);
 	}
 	print_stack(a, "depois");
 	ft_stackfree(&a);
