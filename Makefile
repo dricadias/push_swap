@@ -6,7 +6,7 @@
 #    By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/10 16:45:05 by adias-do          #+#    #+#              #
-#    Updated: 2025/01/27 18:50:33 by adias-do         ###   ########.fr        #
+#    Updated: 2025/02/21 18:26:37 by adias-do         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ SRCS = srcs/list_utils.c \
 	srcs/ft_reverse_rotate.c \
 	srcs/check_sorted.c \
 	srcs/sort_three.c \
-	srcs/sort_five.c	
+	srcs/sort_five.c \
+	srcs/algorithm.c
 OBJS = $(SRCS:.c=.o)
 
 INCLUDE = -L ./libft -lft

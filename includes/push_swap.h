@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:46:10 by adias-do          #+#    #+#             */
-/*   Updated: 2025/02/05 18:15:33 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/02/21 18:22:11 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int			ft_max(t_stack *stack);
 // utils
 void		ft_freestr(char **str);
 int			check_sorted(t_stack *stack, int type);
+int			cheapest_rotate(t_stack *stack, int number);
 
 // movements
 // j = 0 for print moves; j = 1 for checker;
