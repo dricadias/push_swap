@@ -6,14 +6,13 @@
 #    By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/10 16:45:05 by adias-do          #+#    #+#              #
-#    Updated: 2025/02/21 18:26:37 by adias-do         ###   ########.fr        #
+#    Updated: 2025/03/11 16:16:27 by adias-do         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
-# AR = ar rcs
 LIBFTDIR = libft
 RM = rm -rf
 SRCS = srcs/list_utils.c \
@@ -26,8 +25,11 @@ SRCS = srcs/list_utils.c \
 	srcs/ft_reverse_rotate.c \
 	srcs/check_sorted.c \
 	srcs/sort_three.c \
-	srcs/sort_five.c \
-	srcs/algorithm.c
+	srcs/sort_four.c \
+	srcs/algorithm.c \
+	srcs/algorithm_utils.c \
+	srcs/ft_apply_to_stack.c \
+	srcs/ft_ab_or_ba.c
 OBJS = $(SRCS:.c=.o)
 
 INCLUDE = -L ./libft -lft
@@ -40,9 +42,6 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) ${INCLUDE}
 
 all: $(NAME)
-
-#%.o: %.c
-#	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJS)

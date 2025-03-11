@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 15:10:37 by adias-do          #+#    #+#             */
-/*   Updated: 2025/02/10 13:04:16 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/02/25 21:42:21 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,16 @@ int	ft_index(t_stack *stack, int number)
 	int	i;
 
 	if (!stack)
-		return (0);
+		return (-1);
 	i = 0;
-	while (stack->nbr != number)
+	while (stack)
 	{
+		if (stack->nbr == number)
+			return (i);
 		stack = stack->next;
 		i++;
 	}
-	return (i);
+	return (-1);
 }
 
 int	ft_min(t_stack *stack)

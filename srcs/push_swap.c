@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 11:49:30 by adias-do          #+#    #+#             */
-/*   Updated: 2025/02/21 22:07:50 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/03/11 16:50:49 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,17 @@ int	main(int argc, char **argv)
 	t_stack	*a;
 
 	a = ft_check_args(argc, argv);
-	ft_printf("menor: %d\n",ft_min(a));
-	ft_printf("index do menor: %d\n",ft_index(a, ft_min(a)));
-	ft_printf("maior: %d\n", ft_max(a));
-	ft_printf("index do maior: %d\n",ft_index(a, ft_max(a)));
 	print_stack(a, "antes");
 	if (!check_sorted(a, 0))
 	{
-		if (lstsize(a) == 3) 
+		if (lstsize(a) == 2)
+			ft_swap_a(&a, 0);
+		else if (lstsize(a) == 3) 
 			sort_three(&a);
 		else if (lstsize(a) == 4)
 			sort_four(&a);
-		else if (lstsize(a) == 5)
-			sort_five(&a);
+		else if (lstsize(a) >= 5)
+			ft_algorithm(&a);
 	}
 	print_stack(a, "depois");
 	ft_stackfree(&a);
