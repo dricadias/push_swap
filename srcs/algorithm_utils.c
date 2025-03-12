@@ -104,7 +104,7 @@ int	ft_rra_rb_or_ra_rrb(t_stack *stack_a, t_stack *stack_b, int nbr_first, int t
 int	ft_rr_or_rrr_a(t_stack *stack_a, t_stack *stack_b, int nbr_first, int type)
 {
 	int	i;
-	
+
 	i = 0;
 	if (type == 0)
 	{

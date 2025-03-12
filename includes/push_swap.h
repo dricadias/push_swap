@@ -48,27 +48,27 @@ int			check_sorted(t_stack *stack, int type);
 // algo utils
 	// type == 0 for stack a
 	// type == 1 for stack b
-int ft_find_stack_place(t_stack *stack, int nbr_first, int type);
+int			ft_find_stack_place(t_stack *stack, int nbr_first, int type);
 
 	// type == 0 for rr
 	// type == 1 for rrr
 	// type == 2 for rra + rb
 	// type == 3 for ra + rrb
-int	ft_rr_or_rrr(t_stack *stack_a, t_stack *stack_b, int nbr_first, int type);
-int	ft_rr_or_rrr_a(t_stack *stack_a, t_stack *stack_b, int nbr_first, int type);
-int	ft_rra_rb_or_ra_rrb(t_stack *stack_a, t_stack *stack_b, int nbr_first, int type);
-int	ft_rra_rb_or_ra_rrb_a(t_stack *stack_a, t_stack *stack_b, int nbr_first, int type);
+int			ft_rr_or_rrr(t_stack *stack_a, t_stack *stack_b, int nbr_first, int type);
+int			ft_rr_or_rrr_a(t_stack *stack_a, t_stack *stack_b, int nbr_first, int type);
+int			ft_rra_rb_or_ra_rrb(t_stack *stack_a, t_stack *stack_b, int nbr_first, int type);
+int			ft_rra_rb_or_ra_rrb_a(t_stack *stack_a, t_stack *stack_b, int nbr_first, int type);
 
 	// type == 0 for rr
 	// type == 1 for rrr
 	// type == 2 for rra + rb
 	// type == 3 for ra + rrb
-int	ft_apply_a(t_stack **stack_a, t_stack **stack_b, int nbr_first, int type);
-int	ft_apply_b(t_stack **stack_a, t_stack **stack_b, int nbr_first, int type);
-int	ft_apply_a_rrarb_rarrb(t_stack **stack_a, t_stack **stack_b, int nbr_first, int type);
-int	ft_apply_b_rarrb_rrarb(t_stack **stack_a, t_stack **stack_b, int nbr_first, int type);
-int	ft_type_ab(t_stack *stack_a, t_stack *stack_b);
-int	ft_type_ba(t_stack *stack_a, t_stack *stack_b);
+int			ft_apply_a(t_stack **stack_a, t_stack **stack_b, int nbr_first, int type);
+int			ft_apply_b(t_stack **stack_a, t_stack **stack_b, int nbr_first, int type);
+int			ft_apply_a_rrarb_rarrb(t_stack **stack_a, t_stack **stack_b, int nbr_first, int type);
+int			ft_apply_b_rarrb_rrarb(t_stack **stack_a, t_stack **stack_b, int nbr_first, int type);
+int			ft_type_ab(t_stack *stack_a, t_stack *stack_b);
+int			ft_type_ba(t_stack *stack_a, t_stack *stack_b);
 
 // movements
 // j = 0 for print moves; j = 1 for checker;
