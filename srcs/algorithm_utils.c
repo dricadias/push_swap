@@ -12,59 +12,6 @@
 
 #include "../includes/push_swap.h"
 
-// functions (ft_rr_or_rrr and ft_rra_rb_or_ra_rrb) 
-// calculate the number of rotations needed to place nbr_first 
-//
-// ft_rr_or_rrr:
-// type == 0 for rr
-// type == 1 for rrr
-int	ft_rr_or_rrr_a(t_stack *stack_a, t_stack *stack_b, int nbr_first, int type)
-{
-	int	i;
-
-	if (type == 0)
-	{
-		i = ft_find_stack_place(stack_a, nbr_first, 0);
-		if (i < ft_index(stack_b, nbr_first))
-			i = ft_index(stack_b, nbr_first);
-	}
-	else if (type == 1)
-	{
-		i = 0;
-		if (ft_find_stack_place(stack_a, nbr_first, 0))
-			i = lstsize(stack_a) - ft_find_stack_place(stack_a, nbr_first, 0);
-		if ((i < (lstsize(stack_b) - ft_index(stack_b, nbr_first))) && ft_index(stack_b, nbr_first))
-			i = lstsize(stack_b) - ft_index(stack_b, nbr_first);
-	}
-	return (i);
-}
-
-// ft_rra_rb_or_ra_rrb:
-// type == 2 for rra + rb.
-// type == 3 for ra + rrb.
-int	ft_rra_rb_or_ra_rrb_a(t_stack *stack_a, t_stack *stack_b, int nbr_first, int type)
-{
-	int	i;
-
-	i = 0;
-	if (type == 2)
-	{
-		if (ft_find_stack_place(stack_a, nbr_first, 0))
-			i = lstsize(stack_a) - ft_find_stack_place(stack_a, nbr_first, 0);
-		i += ft_index(stack_b, nbr_first);
-	}
-	else if (type == 3)
-	{
-		if (ft_index(stack_b, nbr_first))
-			i = lstsize(stack_b) - ft_index(stack_b, nbr_first);
-		i += ft_find_stack_place(stack_a, nbr_first, 0);
-	}
-	return (i);
-}
-
-// _____________________________________________________________________________
-
-
 // it determines the index where nbr_first should be based on the stack type
 // type == 0 for stack A
 // type == 1 for stack B
@@ -144,6 +91,56 @@ int	ft_rra_rb_or_ra_rrb(t_stack *stack_a, t_stack *stack_b, int nbr_first, int t
 		if (ft_find_stack_place(stack_b, nbr_first, 1))
 			i = lstsize(stack_b) - ft_find_stack_place(stack_b, nbr_first, 1);
 		i += ft_index(stack_a, nbr_first);
+	}
+	return (i);
+}
+
+// functions (ft_rr_or_rrr and ft_rra_rb_or_ra_rrb) 
+// calculate the number of rotations needed to place nbr_first 
+//
+// ft_rr_or_rrr:
+// type == 0 for rr
+// type == 1 for rrr
+int	ft_rr_or_rrr_a(t_stack *stack_a, t_stack *stack_b, int nbr_first, int type)
+{
+	int	i;
+
+	if (type == 0)
+	{
+		i = ft_find_stack_place(stack_a, nbr_first, 0);
+		if (i < ft_index(stack_b, nbr_first))
+			i = ft_index(stack_b, nbr_first);
+	}
+	else if (type == 1)
+	{
+		i = 0;
+		if (ft_find_stack_place(stack_a, nbr_first, 0))
+			i = lstsize(stack_a) - ft_find_stack_place(stack_a, nbr_first, 0);
+		if ((i < (lstsize(stack_b) - ft_index(stack_b, nbr_first))) && ft_index(stack_b, nbr_first))
+			i = lstsize(stack_b) - ft_index(stack_b, nbr_first);
+	}
+	return (i);
+}
+
+// ft_rra_rb_or_ra_rrb:
+// type == 2 for rra + rb.
+// type == 3 for ra + rrb.
+int	ft_rra_rb_or_ra_rrb_a(t_stack *stack_a, t_stack *stack_b, int nbr_first, int type)
+{
+	int	i;
+
+	i = 0;
+	if (type == 2)
+	{
+		if (ft_find_stack_place(stack_a, nbr_first, 0))
+			i = lstsize(stack_a) - ft_find_stack_place(stack_a, nbr_first, 0);
+		i += ft_index(stack_b, nbr_first);
+	}
+	else if (type == 3)
+	{
+		if (ft_index(stack_b, nbr_first))
+			i = lstsize(stack_b) - ft_index(stack_b, nbr_first);
+		i += ft_find_stack_place(stack_a, nbr_first, 0);
 	}
 	return (i);
 }

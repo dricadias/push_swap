@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:46:10 by adias-do          #+#    #+#             */
-/*   Updated: 2025/03/11 16:41:32 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/03/12 00:09:14 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ int	ft_rra_rb_or_ra_rrb_a(t_stack *stack_a, t_stack *stack_b, int nbr_first, int
 	// type == 3 for ra + rrb
 int	ft_apply_a(t_stack **stack_a, t_stack **stack_b, int nbr_first, int type);
 int	ft_apply_b(t_stack **stack_a, t_stack **stack_b, int nbr_first, int type);
+int	ft_apply_a_rrarb_rarrb(t_stack **stack_a, t_stack **stack_b, int nbr_first, int type);
+int	ft_apply_b_rarrb_rrarb(t_stack **stack_a, t_stack **stack_b, int nbr_first, int type);
 int	ft_type_ab(t_stack *stack_a, t_stack *stack_b);
 int	ft_type_ba(t_stack *stack_a, t_stack *stack_b);
 

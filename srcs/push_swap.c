@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 11:49:30 by adias-do          #+#    #+#             */
-/*   Updated: 2025/03/11 16:50:49 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/03/11 18:59:39 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int argc, char **argv)
 	t_stack	*a;
 
 	a = ft_check_args(argc, argv);
-	print_stack(a, "antes");
+	//print_stack(a, "antes");
 	if (!check_sorted(a, 0))
 	{
 		if (lstsize(a) == 2)
@@ -40,7 +40,7 @@ int	main(int argc, char **argv)
 		else if (lstsize(a) >= 5)
 			ft_algorithm(&a);
 	}
-	print_stack(a, "depois");
+	//print_stack(a, "depois");
 	ft_stackfree(&a);
 	return (0);
 }

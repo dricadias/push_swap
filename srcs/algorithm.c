@@ -12,6 +12,19 @@
 
 #include "../includes/push_swap.h"
 
+int	ft_apply_rrarb(t_stack **a, t_stack **b, int c, int type)
+{
+	if (type == 2)
+	{
+		while ((*a)->nbr != c)
+			ft_reverse_rotate(a, 0, 0);
+		while (ft_find_stack_place(*b, c, 1) > 0)
+			ft_rotate(b, 0, 1);
+		ft_push(a, b, 0, 1);
+	}
+	return (-1);
+}
+
 // calculates the rotations and applies the cheapest one to stack b
 void	sort_stack_b(t_stack **stack_a, t_stack **stack_b)
 {
@@ -29,9 +42,9 @@ void	sort_stack_b(t_stack **stack_a, t_stack **stack_b)
 			else if (i == ft_rr_or_rrr(*stack_a, *stack_b, temp->nbr, 1))
 				i = ft_apply_a(stack_a, stack_b, temp->nbr, 1);
 			else if (i == ft_rra_rb_or_ra_rrb(*stack_a, *stack_b, temp->nbr, 2))
-				i = ft_apply_a(stack_a, stack_b, temp->nbr, 2);
+				i = ft_apply_a_rrarb_rarrb(stack_a, stack_b, temp->nbr, 2);
 			else if (i == ft_rra_rb_or_ra_rrb(*stack_a, *stack_b, temp->nbr, 3))
-				i = ft_apply_a(stack_a, stack_b, temp->nbr, 3);
+				i = ft_apply_a_rrarb_rarrb(stack_a, stack_b, temp->nbr, 3);
 			else
 				temp = temp->next;
 		}
@@ -72,9 +85,9 @@ t_stack	**sort_stack_a(t_stack **stack_a, t_stack **stack_b)
 			else if (i == ft_rr_or_rrr_a(*stack_a, *stack_b, temp->nbr, 1))
 				i = ft_apply_b(stack_a, stack_b, temp->nbr, 1);
 			else if (i == ft_rra_rb_or_ra_rrb_a(*stack_a, *stack_b, temp->nbr, 2))
-				i = ft_apply_b(stack_a, stack_b, temp->nbr, 2);
+				i = ft_apply_b_rarrb_rrarb(stack_a, stack_b, temp->nbr, 2);
 			else if (i == ft_rra_rb_or_ra_rrb_a(*stack_a, *stack_b, temp->nbr, 3))
-				i = ft_apply_b(stack_a, stack_b, temp->nbr, 3);
+				i = ft_apply_b_rarrb_rrarb(stack_a, stack_b, temp->nbr, 3);
 			else
 				temp = temp->next;
 		}
