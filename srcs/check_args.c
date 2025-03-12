@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:57:35 by adias-do          #+#    #+#             */
-/*   Updated: 2025/02/11 16:40:44 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/03/12 23:15:44 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_error(void)
 {
-	ft_putendl_fd("Error", 2);
+	write(2, "Error\n", 6);
 	exit(1);
 }
 
