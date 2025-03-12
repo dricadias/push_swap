@@ -25,74 +25,22 @@ void	print_stack(t_stack *stack, char *name)
 
 int	main(int argc, char **argv)
 {
-	t_stack	*a;
+	t_stack	*stack_a;
 
-	a = ft_check_args(argc, argv);
-	//print_stack(a, "antes");
-	if (!check_sorted(a, 0))
+	stack_a = ft_check_args(argc, argv);
+	//print_stack(stack_a, "antes");
+	if (!check_sorted(stack_a, 0))
 	{
-		if (lstsize(a) == 2)
-			ft_swap_a(&a, 0);
-		else if (lstsize(a) == 3) 
-			sort_three(&a);
-		else if (lstsize(a) == 4)
-			sort_four(&a);
-		else if (lstsize(a) >= 5)
-			ft_algorithm(&a);
+		if (lstsize(stack_a) == 2)
+			ft_swap_a(&stack_a, 0);
+		else if (lstsize(stack_a) == 3) 
+			sort_three(&stack_a);
+		else if (lstsize(stack_a) == 4)
+			sort_four(&stack_a);
+		else if (lstsize(stack_a) >= 5)
+			ft_algorithm(&stack_a);
 	}
-	//print_stack(a, "depois");
-	ft_stackfree(&a);
+	//print_stack(stack_a, "depois");
+	ft_stackfree(&stack_a);
 	return (0);
 }
-
-/*#include <stdio.h>*/
-/**/
-/*int main(int argc, char **argv)*/
-/*{*/
-/*    t_stack *a;*/
-/*    t_stack *b = NULL;*/
-/*    // Criando a pilha a partir dos argumentos*/
-/*    a = ft_check_args(argc, argv);*/
-/*    printf("Pilha inicial:\n");*/
-/*    print_stack(a, "A");*/
-/*    // Testando operações básicas do Push Swap*/
-/*    printf("\nExecutando SA (swap A)...\n");*/
-/*    ft_swap_a(&a, 0);*/
-/*    print_stack(a, "A");*/
-/*    printf("\nExecutando PB (push B)...\n");*/
-/*    ft_push(&a, &b, 0, 1);*/
-/*    print_stack(a, "A");*/
-/*    print_stack(b, "B");*/
-/*    printf("\nExecutando PB (push B) novamente...\n");*/
-/*    ft_push(&a, &b, 0, 1);*/
-/*    print_stack(a, "A");*/
-/*    print_stack(b, "B");*/
-/*    printf("\nExecutando RA (rotate A)...\n");*/
-/*    ft_rotate(&a, 0, 0);*/
-/*    print_stack(a, "A");*/
-/*    printf("\nExecutando RB (rotate B)...\n");*/
-/*    ft_rotate(&b, 0, 1);*/
-/*    print_stack(b, "B");*/
-/*    printf("\nExecutando RR (rotate A e B juntos)...\n");*/
-/*    ft_rr(&a, &b, 0, 2);*/
-/*    print_stack(a, "A");*/
-/*    print_stack(b, "B");*/
-/*    printf("\nExecutando RRA (reverse rotate A)...\n");*/
-/*    ft_reverse_rotate(&a, 0, 0);*/
-/*    print_stack(a, "A");*/
-/*    printf("\nExecutando RRB (reverse rotate B)...\n");*/
-/*    ft_reverse_rotate(&b, 0, 1);*/
-/*    print_stack(b, "B");*/
-/*    printf("\nExecutando RRR (reverse rotate A e B juntos)...\n");*/
-/*    ft_rrr(&a, &b, 0, 2);*/
-/*    print_stack(a, "A");*/
-/*    print_stack(b, "B");*/
-/*    printf("\nExecutando PA (push A)...\n");*/
-/*    ft_push(&b, &a, 0, 0);*/
-/*    print_stack(a, "A");*/
-/*    print_stack(b, "B");*/
-/*    // Liberando memória (se necessário)*/
-/*    ft_stackfree(&a);*/
-/*    ft_stackfree(&b);*/
-/*    return 0;*/
-/*}*/
