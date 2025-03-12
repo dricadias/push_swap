@@ -6,13 +6,13 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 14:34:08 by adias-do          #+#    #+#             */
-/*   Updated: 2025/03/12 20:39:04 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/03/12 23:14:24 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-char	check_mov(t_stack **stack_a, t_stack **stack_b, char *line)
+char	*check_mov(t_stack **stack_a, t_stack **stack_b, char *line)
 {
 	if (ft_strncmp(line, "pa\n", 3) == 0)
 		ft_push(stack_b, stack_a, 1, 1);
@@ -41,7 +41,7 @@ char	check_mov(t_stack **stack_a, t_stack **stack_b, char *line)
 	return(line);
 }
 
-void	check_line(t_stack **a, t_stack **b)
+void	check_line(t_stack **stack_a, t_stack **stack_b)
 {
 	char	*line;
 
@@ -52,7 +52,7 @@ void	check_line(t_stack **a, t_stack **b)
 		free(line);
 		line = get_next_line(0);
 	}
-	if (!line && !check_sorted(stack_a, 0))
+	if (!line && !check_sorted(*stack_a, 0))
 		write(1, "KO\n", 3);
 	else // (!line && check_sorted(stack_a))
 		write(1, "OK\n", 3);
@@ -70,7 +70,7 @@ int	checker(int argc, char **argv)
 		ft_stackfree(&stack_a);
 		ft_error();
 	}
-	check_line(&a, &b, line);
+	check_line(&stack_a, &stack_b);
 	ft_stackfree(&stack_a);
 	ft_stackfree(&stack_b);
 	return (0);
