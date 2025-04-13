@@ -15,30 +15,30 @@
 // it determines the index where nbr_first should be based on the stack type
 // type == 0 for stack A
 // type == 1 for stack B
-int ft_find_stack_place(t_stack *stack, int nbr_first, int type)
+int	ft_find_stack_place(t_stack *stck, int nbr_f, int ty)
 {
 	int		i;
 	t_stack	*temp;
 
-	if (!stack)
+	if (!stck)
 		return (0);
 	i = 1;
-	temp = stack->next;
-	if ((type == 0 && (nbr_first < stack->nbr && nbr_first > lst_last(stack)->nbr)) 
-	|| (type == 1 && (nbr_first > stack->nbr && nbr_first < lst_last(stack)->nbr)))
+	temp = stck->next;
+	if ((ty == 0 && (nbr_f < stck->nbr && nbr_f > lst_last(stck)->nbr))
+		|| (ty == 1 && (nbr_f > stck->nbr && nbr_f < lst_last(stck)->nbr)))
 		return (0);
-	else if (nbr_first > ft_max(stack) || nbr_first < ft_min(stack))
+	else if (nbr_f > ft_max(stck) || nbr_f < ft_min(stck))
 	{
-		if (type == 0)
-			return (ft_index(stack, ft_min(stack)));
+		if (ty == 0)
+			return (ft_index(stck, ft_min(stck)));
 		else
-			return (ft_index(stack, ft_max(stack)));
+			return (ft_index(stck, ft_max(stck)));
 	}
-	while ((type == 0 && (stack->nbr > nbr_first || temp->nbr < nbr_first)) || 
-	(type == 1 && (stack->nbr < nbr_first || temp->nbr > nbr_first)))
+	while ((ty == 0 && (stck->nbr > nbr_f || temp->nbr < nbr_f))
+		|| (ty == 1 && (stck->nbr < nbr_f || temp->nbr > nbr_f)))
 	{
-		stack = stack->next;
-		temp = stack->next;
+		stck = stck->next;
+		temp = stck->next;
 		i++;
 	}
 	return (i);
@@ -65,8 +65,8 @@ int	ft_rr_or_rrr(t_stack *a, t_stack *b, int nbr_first, int type)
 	{
 		if (ft_find_stack_place(b, nbr_first, 1))
 			i = lstsize(b) - ft_find_stack_place(b, nbr_first, 1);
-		if ((i < (lstsize(a) - ft_index(a, nbr_first))) 
-		&& ft_index(a, nbr_first))
+		if ((i < (lstsize(a) - ft_index(a, nbr_first)))
+			&& ft_index(a, nbr_first))
 			i = lstsize(a) - ft_index(a, nbr_first);
 	}
 	return (i);
@@ -117,7 +117,8 @@ int	ft_rr_or_rrr_a(t_stack *a, t_stack *b, int nbr_first, int type)
 		i = 0;
 		if (ft_find_stack_place(a, nbr_first, 0))
 			i = lstsize(a) - ft_find_stack_place(a, nbr_first, 0);
-		if ((i < (lstsize(b) - ft_index(b, nbr_first))) && ft_index(b, nbr_first))
+		if ((i < (lstsize(b) - ft_index(b, nbr_first)))
+			&& ft_index(b, nbr_first))
 			i = lstsize(b) - ft_index(b, nbr_first);
 	}
 	return (i);

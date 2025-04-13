@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:46:10 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/13 20:34:22 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/13 20:53:11 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int		check_sorted(t_stack *stack, int type);
 // algo utils
 	// type == 0 for stack a
 	// type == 1 for stack b
-int		ft_find_stack_place(t_stack *stack, int nbr_first, int type);
+int		ft_find_stack_place(t_stack *stck, int nbr_f, int ty);
 
 	// type == 0 for rr
 	// type == 1 for rrr
