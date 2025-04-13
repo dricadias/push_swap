@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:46:10 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/13 20:53:11 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/13 21:05:41 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,8 @@ void	sort_four(t_stack **stack_a);
 	// main algorithm
 void	sort_stack_b(t_stack **stack_a, t_stack **stack_b);
 t_stack	*push_stack_b(t_stack **stack_a);
-t_stack	**sort_stack_a(t_stack **stack_a, t_stack **stack_b);
+t_stack	**sort_stack_a(t_stack **a, t_stack **b);
+void	ft_rotate_to_min(t_stack **stack_a);
 void	ft_algorithm(t_stack **stack_a);
 
 void	print_stack(t_stack *stack, char *name); // rm later

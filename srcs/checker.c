@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 14:34:08 by adias-do          #+#    #+#             */
-/*   Updated: 2025/03/12 23:14:24 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/13 20:59:53 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*check_mov(t_stack **stack_a, t_stack **stack_b, char *line)
 		ft_rrr(stack_a, stack_b, 1, 2);
 	else
 		ft_error();
-	return(line);
+	return (line);
 }
 
 void	check_line(t_stack **stack_a, t_stack **stack_b)
@@ -46,7 +46,7 @@ void	check_line(t_stack **stack_a, t_stack **stack_b)
 	char	*line;
 
 	line = get_next_line(0);
-	while(line)
+	while (line)
 	{
 		check_mov(stack_a, stack_b, line);
 		free(line);
@@ -54,14 +54,14 @@ void	check_line(t_stack **stack_a, t_stack **stack_b)
 	}
 	if (!line && !check_sorted(*stack_a, 0))
 		write(1, "KO\n", 3);
-	else // (!line && check_sorted(stack_a))
+	else
 		write(1, "OK\n", 3);
 }
 
 int	checker(int argc, char **argv)
 {
 	t_stack	*stack_a;
-	t_stack *stack_b;
+	t_stack	*stack_b;
 
 	stack_b = NULL;
 	stack_a = ft_check_args(argc, argv);

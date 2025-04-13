@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 20:03:02 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/13 20:34:17 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/13 20:58:20 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,3 @@ void	sort_four(t_stack **stack_a)
 	sort_three(stack_a);
 	ft_push(&stack_b, stack_a, 0, 0);
 }
-

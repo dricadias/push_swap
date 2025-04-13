@@ -69,33 +69,34 @@ t_stack	*push_stack_b(t_stack **stack_a)
 }
 
 // calculates the rotations and applies the cheapest one to stack a
-t_stack	**sort_stack_a(t_stack **stack_a, t_stack **stack_b)
+t_stack	**sort_stack_a(t_stack **a, t_stack **b)
 {
 	int		i;
 	t_stack	*temp;
 
-	while (*stack_b)
+	while (*b)
 	{
-		temp = *stack_b;
-		i = ft_type_ba(*stack_a, *stack_b);
+		temp = *b;
+		i = ft_type_ba(*a, *b);
 		while (i >= 0)
 		{
-			if (i == ft_rr_or_rrr_a(*stack_a, *stack_b, temp->nbr, 0))
-				i = ft_apply_b(stack_a, stack_b, temp->nbr, 0);
-			else if (i == ft_rr_or_rrr_a(*stack_a, *stack_b, temp->nbr, 1))
-				i = ft_apply_b(stack_a, stack_b, temp->nbr, 1);
-			else if (i == ft_rra_rb_or_ra_rrb_a(*stack_a, *stack_b, temp->nbr, 2))
-				i = ft_apply_b_rarrb_rrarb(stack_a, stack_b, temp->nbr, 2);
-			else if (i == ft_rra_rb_or_ra_rrb_a(*stack_a, *stack_b, temp->nbr, 3))
-				i = ft_apply_b_rarrb_rrarb(stack_a, stack_b, temp->nbr, 3);
+			if (i == ft_rr_or_rrr_a(*a, *b, temp->nbr, 0))
+				i = ft_apply_b(a, b, temp->nbr, 0);
+			else if (i == ft_rr_or_rrr_a(*a, *b, temp->nbr, 1))
+				i = ft_apply_b(a, b, temp->nbr, 1);
+			else if (i == ft_rra_rb_or_ra_rrb_a(*a, *b, temp->nbr, 2))
+				i = ft_apply_b_rarrb_rrarb(a, b, temp->nbr, 2);
+			else if (i == ft_rra_rb_or_ra_rrb_a(*a, *b, temp->nbr, 3))
+				i = ft_apply_b_rarrb_rrarb(a, b, temp->nbr, 3);
 			else
 				temp = temp->next;
 		}
 	}
-	return (stack_a);
+	return (a);
 }
 
-// ensure that the smallest value is at the top of the stack_a at the end of the sort
+// ensure that the smallest value is at the 
+// top of the stack_a at the end of the sort
 void	ft_rotate_to_min(t_stack **stack_a)
 {
 	int	i;
@@ -111,21 +112,5 @@ void	ft_rotate_to_min(t_stack **stack_a)
 			ft_rotate(stack_a, 0, 0);
 		else
 			ft_reverse_rotate(stack_a, 0, 0);
-	}
-}
-
-// main function of the code, to organize the numbers
-void	ft_algorithm(t_stack **stack_a)
-{
-	t_stack	*stack_b;
-
-	stack_b = NULL;
-	if (lstsize(*stack_a) == 2)
-		ft_swap_a(stack_a, 0);
-	else
-	{
-		stack_b = push_stack_b(stack_a);
-		sort_stack_a(stack_a, &stack_b);
-		ft_rotate_to_min(stack_a);
 	}
 }
