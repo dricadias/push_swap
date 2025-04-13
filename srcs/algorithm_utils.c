@@ -18,7 +18,7 @@
 int ft_find_stack_place(t_stack *stack, int nbr_first, int type)
 {
 	int		i;
-	t_stack *temp;
+	t_stack	*temp;
 
 	if (!stack)
 		return (0);
@@ -50,24 +50,24 @@ int ft_find_stack_place(t_stack *stack, int nbr_first, int type)
 // ft_rr_or_rrr:
 // type == 0 for rr
 // type == 1 for rrr
-int	ft_rr_or_rrr(t_stack *stack_a, t_stack *stack_b, int nbr_first, int type)
+int	ft_rr_or_rrr(t_stack *a, t_stack *b, int nbr_first, int type)
 {
 	int	i;
 
 	i = 0;
 	if (type == 0)
 	{
-		i = ft_find_stack_place(stack_b, nbr_first, 1);
-		if (i < ft_index(stack_a, nbr_first))
-			i = ft_index(stack_a, nbr_first);
+		i = ft_find_stack_place(b, nbr_first, 1);
+		if (i < ft_index(a, nbr_first))
+			i = ft_index(a, nbr_first);
 	}
 	else if (type == 1)
 	{
-		if (ft_find_stack_place(stack_b, nbr_first, 1))
-			i = lstsize(stack_b) - ft_find_stack_place(stack_b, nbr_first, 1);
-		if ((i < (lstsize(stack_a) - ft_index(stack_a, nbr_first))) 
-		&& ft_index(stack_a, nbr_first))
-			i = lstsize(stack_a) - ft_index(stack_a, nbr_first);
+		if (ft_find_stack_place(b, nbr_first, 1))
+			i = lstsize(b) - ft_find_stack_place(b, nbr_first, 1);
+		if ((i < (lstsize(a) - ft_index(a, nbr_first))) 
+		&& ft_index(a, nbr_first))
+			i = lstsize(a) - ft_index(a, nbr_first);
 	}
 	return (i);
 }
@@ -75,22 +75,22 @@ int	ft_rr_or_rrr(t_stack *stack_a, t_stack *stack_b, int nbr_first, int type)
 // ft_rra_rb_or_ra_rrb:
 // type == 2 for rra + rb.
 // type == 3 for ra + rrb.
-int	ft_rra_rb_or_ra_rrb(t_stack *stack_a, t_stack *stack_b, int nbr_first, int type)
+int	ft_rra_rb_or_ra_rrb(t_stack *a, t_stack *b, int nbr_first, int type)
 {
 	int	i;
 
 	i = 0;
 	if (type == 2)
 	{
-		if (ft_index(stack_a, nbr_first))
-			i = lstsize(stack_a) - ft_index(stack_a, nbr_first);
-		i += ft_find_stack_place(stack_b, nbr_first, 1);
+		if (ft_index(a, nbr_first))
+			i = lstsize(a) - ft_index(a, nbr_first);
+		i += ft_find_stack_place(b, nbr_first, 1);
 	}
 	else if (type == 3)
 	{
-		if (ft_find_stack_place(stack_b, nbr_first, 1))
-			i = lstsize(stack_b) - ft_find_stack_place(stack_b, nbr_first, 1);
-		i += ft_index(stack_a, nbr_first);
+		if (ft_find_stack_place(b, nbr_first, 1))
+			i = lstsize(b) - ft_find_stack_place(b, nbr_first, 1);
+		i += ft_index(a, nbr_first);
 	}
 	return (i);
 }
@@ -101,24 +101,24 @@ int	ft_rra_rb_or_ra_rrb(t_stack *stack_a, t_stack *stack_b, int nbr_first, int t
 // ft_rr_or_rrr:
 // type == 0 for rr
 // type == 1 for rrr
-int	ft_rr_or_rrr_a(t_stack *stack_a, t_stack *stack_b, int nbr_first, int type)
+int	ft_rr_or_rrr_a(t_stack *a, t_stack *b, int nbr_first, int type)
 {
 	int	i;
 
 	i = 0;
 	if (type == 0)
 	{
-		i = ft_find_stack_place(stack_a, nbr_first, 0);
-		if (i < ft_index(stack_b, nbr_first))
-			i = ft_index(stack_b, nbr_first);
+		i = ft_find_stack_place(a, nbr_first, 0);
+		if (i < ft_index(b, nbr_first))
+			i = ft_index(b, nbr_first);
 	}
 	else if (type == 1)
 	{
 		i = 0;
-		if (ft_find_stack_place(stack_a, nbr_first, 0))
-			i = lstsize(stack_a) - ft_find_stack_place(stack_a, nbr_first, 0);
-		if ((i < (lstsize(stack_b) - ft_index(stack_b, nbr_first))) && ft_index(stack_b, nbr_first))
-			i = lstsize(stack_b) - ft_index(stack_b, nbr_first);
+		if (ft_find_stack_place(a, nbr_first, 0))
+			i = lstsize(a) - ft_find_stack_place(a, nbr_first, 0);
+		if ((i < (lstsize(b) - ft_index(b, nbr_first))) && ft_index(b, nbr_first))
+			i = lstsize(b) - ft_index(b, nbr_first);
 	}
 	return (i);
 }
@@ -126,22 +126,22 @@ int	ft_rr_or_rrr_a(t_stack *stack_a, t_stack *stack_b, int nbr_first, int type)
 // ft_rra_rb_or_ra_rrb:
 // type == 2 for rra + rb.
 // type == 3 for ra + rrb.
-int	ft_rra_rb_or_ra_rrb_a(t_stack *stack_a, t_stack *stack_b, int nbr_first, int type)
+int	ft_rra_rb_or_ra_rrb_a(t_stack *a, t_stack *b, int nbr_first, int type)
 {
 	int	i;
 
 	i = 0;
 	if (type == 2)
 	{
-		if (ft_find_stack_place(stack_a, nbr_first, 0))
-			i = lstsize(stack_a) - ft_find_stack_place(stack_a, nbr_first, 0);
-		i += ft_index(stack_b, nbr_first);
+		if (ft_find_stack_place(a, nbr_first, 0))
+			i = lstsize(a) - ft_find_stack_place(a, nbr_first, 0);
+		i += ft_index(b, nbr_first);
 	}
 	else if (type == 3)
 	{
-		if (ft_index(stack_b, nbr_first))
-			i = lstsize(stack_b) - ft_index(stack_b, nbr_first);
-		i += ft_find_stack_place(stack_a, nbr_first, 0);
+		if (ft_index(b, nbr_first))
+			i = lstsize(b) - ft_index(b, nbr_first);
+		i += ft_find_stack_place(a, nbr_first, 0);
 	}
 	return (i);
 }
