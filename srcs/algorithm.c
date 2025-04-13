@@ -35,7 +35,7 @@ void	sort_stack_b(t_stack **stack_a, t_stack **stack_b)
 	{
 		temp = *stack_a;
 		i = ft_type_ab(*stack_a, *stack_b);
-		while(i >= 0)
+		while (i >= 0)
 		{
 			if (i == ft_rr_or_rrr(*stack_a, *stack_b, temp->nbr, 0))
 				i = ft_apply_a(stack_a, stack_b, temp->nbr, 0);
