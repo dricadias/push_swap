@@ -97,6 +97,8 @@ int	ft_atoi_checker(char *str)
 			sign *= -1;
 		str++;
 	}
+	if (!*str)
+		ft_error();
 	while (*str)
 	{
 		if (!ft_isdigit(*str))
