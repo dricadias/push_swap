@@ -6,16 +6,49 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:57:35 by adias-do          #+#    #+#             */
-/*   Updated: 2025/03/12 23:15:44 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/14 01:41:29 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_error(void)
+/* void	ft_error(void)
 {
 	write(2, "Error\n", 6);
 	exit(1);
+} */
+
+void	ft_error(t_stack **stack, char **splt)
+{
+	if (stack)
+		ft_stackfree(stack);
+	if (splt)
+	{
+		ft_freestr(splt);
+		free(splt);
+	}
+	write(2, "Error\n", 6);
+	exit(EXIT_FAILURE);
+}
+
+int	is_valid_number(char *str)
+{
+	int	i;
+
+	i = 0;
+	while ((str[i] == ' ') || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+		i++;
+	if (!str[i])
+		return (0);
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
 // if 1 argv (2 argc)
@@ -30,17 +63,16 @@ t_stack	*ft_split_args(char **argv)
 	i = -1;
 	splt = ft_split(argv[1], 32);
 	if (!splt)
-		ft_error();
+		ft_error(NULL, NULL);
 	stack_a = NULL;
 	while (splt[++i])
 	{
+		if (!is_valid_number(splt[i]))
+			ft_error(&stack_a, splt);
 		c = ft_atoi_checker(splt[i]);
 		if (if_equals(stack_a, c))
 		{
-			ft_stackfree(&stack_a);
-			ft_freestr(splt);
-			free (splt);
-			ft_error();
+			ft_error(&stack_a, splt);
 		}
 		lstadd_back(&stack_a, lst_new(c));
 	}
@@ -67,12 +99,11 @@ t_stack	*ft_check_args(int argc, char **argv)
 	{
 		while (i < argc)
 		{
+			if (!is_valid_number(argv[i]))
+				ft_error(&stack_a, NULL);
 			c = ft_atoi_checker(argv[i]);
 			if (if_equals(stack_a, c))
-			{
-				ft_stackfree(&stack_a);
-				ft_error();
-			}
+				ft_error(&stack_a, NULL);
 			lstadd_back(&stack_a, lst_new(c));
 			i++;
 		}
@@ -97,17 +128,14 @@ int	ft_atoi_checker(char *str)
 			sign *= -1;
 		str++;
 	}
-	if (!*str)
-		ft_error();
 	while (*str)
 	{
-		if (!ft_isdigit(*str))
-			ft_error();
 		res = res * 10 + *str - '0';
 		str++;
 	}
-	if ((res * sign) > 2147483647 || (res * sign) < -2147483648)
-		ft_error();
+	res = res * sign;
+	if (res > 2147483647 || res < -2147483648)
+		ft_error(NULL, NULL);
 	return (res * sign);
 }
 

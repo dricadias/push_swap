@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:46:10 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/13 21:05:41 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/14 00:58:18 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ typedef struct s_stack
 }	t_stack;
 
 // error handling and add to stack a 
-void	ft_error(void);
+//void	ft_error(void);
+void	ft_error(t_stack **stack, char **splt);
 int		ft_atoi_checker(char *str);
 int		if_equals(t_stack *stack, int nb);
 t_stack	*ft_split_args(char **argv);
