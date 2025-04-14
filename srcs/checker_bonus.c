@@ -6,11 +6,17 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 14:34:08 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/13 20:59:53 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/14 15:23:53 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void	ft_error_void(void)
+{
+	write(2, "Error\n", 6);
+	exit(1);
+}
 
 char	*check_mov(t_stack **stack_a, t_stack **stack_b, char *line)
 {
@@ -37,7 +43,7 @@ char	*check_mov(t_stack **stack_a, t_stack **stack_b, char *line)
 	else if (ft_strncmp(line, "rrr\n", 4) == 0)
 		ft_rrr(stack_a, stack_b, 1, 2);
 	else
-		ft_error();
+		ft_error_void();
 	return (line);
 }
 
@@ -68,7 +74,7 @@ int	checker(int argc, char **argv)
 	if (!stack_a)
 	{
 		ft_stackfree(&stack_a);
-		ft_error();
+		ft_error_void();
 	}
 	check_line(&stack_a, &stack_b);
 	ft_stackfree(&stack_a);

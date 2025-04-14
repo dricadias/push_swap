@@ -6,30 +6,11 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:57:35 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/14 13:59:50 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/14 15:58:26 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-/* void	ft_error(void)
-{
-	write(2, "Error\n", 6);
-	exit(1);
-} */
-
-void	ft_error(t_stack **stack, char **splt)
-{
-	if (stack)
-		ft_stackfree(stack);
-	if (splt)
-	{
-		ft_freestr(splt);
-		free(splt);
-	}
-	write(2, "Error\n", 6);
-	exit(EXIT_FAILURE);
-}
 
 int	is_valid_number(char *str)
 {
@@ -69,7 +50,7 @@ t_stack	*ft_split_args(char **argv)
 	{
 		if (!is_valid_number(splt[i]))
 			ft_error(&stack_a, splt);
-		c = ft_atoi_checker(splt[i]);
+		c = ft_atoi_checker(splt[i], &stack_a, splt);
 		if (if_equals(stack_a, c))
 		{
 			ft_error(&stack_a, splt);
@@ -101,7 +82,7 @@ t_stack	*ft_check_args(int argc, char **argv)
 		{
 			if (!is_valid_number(argv[i]))
 				ft_error(&stack_a, NULL);
-			c = ft_atoi_checker(argv[i]);
+			c = ft_atoi_checker(argv[i], &stack_a, NULL);
 			if (if_equals(stack_a, c))
 				ft_error(&stack_a, NULL);
 			lstadd_back(&stack_a, lst_new(c));
@@ -113,7 +94,7 @@ t_stack	*ft_check_args(int argc, char **argv)
 
 // args em numeros dentro do int max e min
 // line 92 check if isnt a number
-int	ft_atoi_checker(char *str)
+int	ft_atoi_checker(char *str, t_stack **stack, char **splt)
 {
 	int				sign;
 	long long		res;
@@ -134,7 +115,7 @@ int	ft_atoi_checker(char *str)
 		str++;
 	}
 	if ((res * sign) > 2147483647 || (res * sign) < -2147483648)
-		ft_error(NULL, NULL);
+		ft_error(stack, splt);
 	return (res * sign);
 }
 

@@ -6,7 +6,7 @@
 #    By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/10 16:45:05 by adias-do          #+#    #+#              #
-#    Updated: 2025/03/12 23:08:22 by adias-do         ###   ########.fr        #
+#    Updated: 2025/04/14 15:39:12 by adias-do         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,9 +30,10 @@ SRCS_2 = srcs/list_utils.c \
 	srcs/algorithm.c \
 	srcs/algorithm_utils.c \
 	srcs/ft_apply_to_stack.c \
-	srcs/ft_ab_or_ba.c
+	srcs/ft_ab_or_ba.c \
+	srcs/ft_error.c
 
-BONUS_SRC = srcs/checker.c
+BONUS_SRC = srcs/checker_bonus.c
 
 OBJS_1 = $(SRCS_1:.c=.o)
 OBJS_2 = $(SRCS_2:.c=.o)
