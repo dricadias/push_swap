@@ -92,8 +92,6 @@ t_stack	*ft_check_args(int argc, char **argv)
 	return (stack_a);
 }
 
-// args em numeros dentro do int max e min
-// line 92 check if isnt a number
 int	ft_atoi_checker(char *str, t_stack **stack, char **splt)
 {
 	int				sign;
@@ -120,7 +118,6 @@ int	ft_atoi_checker(char *str, t_stack **stack, char **splt)
 }
 
 // check same numbers
-// bad (slow O(n^2)) just for test
 int	if_equals(t_stack *stack, int nb)
 {
 	while (stack)
