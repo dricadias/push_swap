@@ -6,7 +6,7 @@
 /*   By: adias-do <adias-do@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:57:35 by adias-do          #+#    #+#             */
-/*   Updated: 2025/04/14 01:41:29 by adias-do         ###   ########.fr       */
+/*   Updated: 2025/04/14 13:59:50 by adias-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,8 +133,7 @@ int	ft_atoi_checker(char *str)
 		res = res * 10 + *str - '0';
 		str++;
 	}
-	res = res * sign;
-	if (res > 2147483647 || res < -2147483648)
+	if ((res * sign) > 2147483647 || (res * sign) < -2147483648)
 		ft_error(NULL, NULL);
 	return (res * sign);
 }
